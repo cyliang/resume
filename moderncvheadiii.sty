@@ -25,7 +25,6 @@
 %                required packages
 %-------------------------------------------------------------------------------
 
-
 %-------------------------------------------------------------------------------
 %                overall head definition
 %-------------------------------------------------------------------------------
@@ -46,57 +45,38 @@
     {~~~{\rmfamily\textbullet}~~~}}% the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
 %   internal command to add an element to the footer
 %   it collects the elements in a temporary box, and checks when to flush the box
-\@initializebox{\makeheaddetailsbox}%
-\@initializebox{\makeheaddetailstempbox}%
 \@initializelength{\makeheaddetailswidth}%
-\@initializelength{\makeheaddetailsboxwidth}%
-\@initializeif{\if@firstmakeheaddetailselement}\@firstmakeheaddetailselementtrue%
-%   adds an element to the makehead, separated by makeheadsymbol
-%   usage: \addtomakehead[makeheadsymbol]{element}
-\newcommand*{\addtomakeheaddetails}[2][\makeheaddetailssymbol]{% TODO: use \@initializecommand, which requires modifying its definition to handle mandatory and optional arguments
-  \if@firstmakeheaddetailselement%
-    \savebox{\makeheaddetailstempbox}{\usebox{\makeheaddetailsbox}#2}%
-  \else%
-    \savebox{\makeheaddetailstempbox}{\usebox{\makeheaddetailsbox}#1#2}\fi%
-  \settowidth{\makeheaddetailsboxwidth}{\usebox{\makeheaddetailstempbox}}%
-  \ifnum\makeheaddetailsboxwidth<\makeheaddetailswidth%
-    \savebox{\makeheaddetailsbox}{\usebox{\makeheaddetailstempbox}}%
-    \@firstmakeheaddetailselementfalse%
-  \else%
-    \flushmakeheaddetails\\%
-    \savebox{\makeheaddetailsbox}{#2}%
-    \savebox{\makeheaddetailstempbox}{#2}%
-    \settowidth{\makeheaddetailsboxwidth}{\usebox{\makeheaddetailsbox}}%
-    \@firstmakeheaddetailselementfalse\fi}
-%   internal command to flush the makehead
-\@initializecommand{\flushmakeheaddetails}{%
-  \strut\usebox{\makeheaddetailsbox}%
-  \savebox{\makeheaddetailsbox}{}%
-  \savebox{\makeheaddetailstempbox}{}%
-  \setlength{\makeheaddetailsboxwidth}{0pt}}
+\@initializelength{\makeheaddetailsbgxmargin}%
+\@initializelength{\makeheaddetailsbgymargin}%
 \@initializecommand{\makehead}{%
-  \setlength{\makeheaddetailswidth}{0.8\textwidth}%
+  \setlength{\makeheaddetailswidth}{\textwidth}%
+  \setlength{\makeheaddetailsbgxmargin}{(\textwidth-\paperwidth)/2}%
+  \setlength{\makeheaddetailsbgymargin}{-\headheight-\headsep-\topmargin+0.5cm}%
+  % background
+  \vspace*{-\makeheaddetailsbgymargin}\hspace*{\makeheaddetailsbgxmargin}\colorbox{color1!10}{\parbox{\pagewidth}{\vspace{\makeheaddetailsbgymargin}\vspace{-0.6cm}%
   \hfil%
   \parbox{\makeheaddetailswidth}{%
-    \centering%
     % name and title
     \namestyle{\@firstname~\@lastname}%
-    \ifthenelse{\equal{\@title}{}}{}{\titlestyle{~|~\@title}}\\% \isundefined doesn't work on \@title, as LaTeX itself defines \@title (before it possibly gets redefined by \title) 
+    \ifthenelse{\equal{\@title}{}}{}{\titlestyle{~|~\@title}}\\[1.2em]% \isundefined doesn't work on \@title, as LaTeX itself defines \@title (before it possibly gets redefined by \title) 
     % optional detailed information
     \if@details{%
       \addressfont\color{color2}%
-      \ifthenelse{\isundefined{\@addressstreet}}{}{\addtomakeheaddetails{\addresssymbol\@addressstreet}%
-        \ifthenelse{\equal{\@addresscity}{}}{}{\addtomakeheaddetails[~--~]{\@addresscity}}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
-        \ifthenelse{\equal{\@addresscountry}{}}{}{\addtomakeheaddetails[~--~]{\@addresscountry}}%
-        \flushmakeheaddetails\@firstmakeheaddetailselementtrue\\\null}%
-      \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
-        \addtomakeheaddetails{\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
-      \ifthenelse{\isundefined{\@email}}{}{\addtomakeheaddetails{\emailsymbol\emaillink{\@email}}}%
-      \ifthenelse{\isundefined{\@homepage}}{}{\addtomakeheaddetails{\homepagesymbol\httplink{\@homepage}}}%
-      \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
-        \addtomakeheaddetails{\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
-      \ifthenelse{\isundefined{\@extrainfo}}{}{\addtomakeheaddetails{\@extrainfo}}%
-    \flushmakeheaddetails}\fi}\\[2.5em]}% need to force a \par after this to avoid weird spacing bug at the first section if no blank line is left after \makehead
+      \ifthenelse{\isundefined{\@addressstreet}}{}{\addresssymbol\@addressstreet%
+        \ifthenelse{\equal{\@addresscity}{}}{}{\@addresscity}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
+        \ifthenelse{\equal{\@addresscountry}{}}{}{\@addresscountry}}\\[0.4em]%
+      \parbox{0.4\textwidth}{
+          \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+            \csname\collectionloopkey phonesymbol\endcsname\collectionloopitem\\[0.2em]}%
+          \ifthenelse{\isundefined{\@email}}{}{\emailsymbol\emaillink{\@email}\\[0.2em]}%
+          \ifthenelse{\isundefined{\@homepage}}{}{\homepagesymbol\httplink{\@homepage}\\[0.2em]}%
+          }%
+      \parbox{0.4\textwidth}{
+          \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+            \csname\collectionloopkey socialsymbol\endcsname\collectionloopitem\\[0.2em]}%
+          \ifthenelse{\isundefined{\@extrainfo}}{}{\@extrainfo\\[0.2em]}%
+        }\fi}}\\[-0.2em]}}\\[-0.8em]% need to force a \par after this to avoid weird spacing bug at the first section if no blank line is left after \makehead
+      }
 
 
 %-------------------------------------------------------------------------------
