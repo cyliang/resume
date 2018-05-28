@@ -4,9 +4,9 @@ Chih-Yung Liang's Resume
 Inspired by many resume templates found on the Internet,
 this resume is based on a modified [moderncv](https://github.com/xdanaux/moderncv) template.
 
-Demo
-----
+Demo(中文版)
+------------
 
-See [this demo pdf](https://github.com/cyliang/resume/blob/master/resume-demo.pdf).
+See [this demo pdf](https://github.com/cyliang/resume/blob/chinese/resume-demo.pdf).
 
-![](https://raw.githubusercontent.com/cyliang/resume/master/resume-demo.png)
+![](https://raw.githubusercontent.com/cyliang/resume/chinese/resume-demo.png)
