@@ -29,7 +29,7 @@
 %                overall head definition
 %-------------------------------------------------------------------------------
 % fonts
-\renewcommand*{\namefont}{\Huge\bfseries\upshape}
+\renewcommand*{\namefont}{\huge\bfseries\upshape}
 \renewcommand*{\titlefont}{\Huge\mdseries\upshape}
 \renewcommand*{\addressfont}{\normalsize\mdseries\upshape}
 \renewcommand*{\quotefont}{\large\slshape}
@@ -53,12 +53,12 @@
   \setlength{\makeheaddetailsbgxmargin}{(\textwidth-\paperwidth)/2}%
   \setlength{\makeheaddetailsbgymargin}{-\headheight-\headsep-\topmargin+0.5cm}%
   % background
-  \vspace*{-\makeheaddetailsbgymargin}\hspace*{\makeheaddetailsbgxmargin}\colorbox{color1!10}{\parbox{\pagewidth}{\vspace{\makeheaddetailsbgymargin}\vspace{-0.6cm}%
+  \vspace*{-\makeheaddetailsbgymargin}\hspace*{\makeheaddetailsbgxmargin}\colorbox{color1!10}{\parbox{\pagewidth}{\vspace{\makeheaddetailsbgymargin}\vspace{-0.62cm}%
   \hfil%
   \parbox{\makeheaddetailswidth}{%
     % name and title
     \namestyle{\@firstname~\@lastname}%
-    \ifthenelse{\equal{\@title}{}}{}{\titlestyle{~|~\@title}}\\[1.2em]% \isundefined doesn't work on \@title, as LaTeX itself defines \@title (before it possibly gets redefined by \title) 
+    \ifthenelse{\equal{\@title}{}}{}{\titlestyle{~|~\@title}}\\[1.12em]% \isundefined doesn't work on \@title, as LaTeX itself defines \@title (before it possibly gets redefined by \title) 
     % optional detailed information
     \if@details{%
       \addressfont\color{color2}%
