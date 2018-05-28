@@ -100,7 +100,7 @@
   \setlength{\parskip}{0\p@}}
 
 \RenewDocumentCommand{\section}{sm}{%
-  \par\addvspace{1.8ex}%
+  \par\addvspace{1.9ex}%
   \phantomsection{}% reset the anchor for hyperrefs
   \addcontentsline{toc}{section}{#2}%
   \if@left\else\if@fullrules\else\if@mixedrules\else%
@@ -112,7 +112,7 @@
     \sectionrule%
   \else\if@right\else%
     \sectionrule\fi\fi\fi%
-  \par\nobreak\addvspace{1ex}\@afterheading}
+  \par\nobreak\addvspace{0.7ex}\@afterheading}
 
 \RenewDocumentCommand{\subsection}{sm}{%
   \par\addvspace{1ex}%
