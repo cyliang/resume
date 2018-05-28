@@ -9,7 +9,17 @@
 \usepackage{babel}
 
 % personal data
-\input{personal-data}
+% Put your private data in a file named "personal-data.tex".
+\IfFileExists{personal-data.tex}{
+    \input{personal-data}
+}{
+    \name{Chih-Yung Liang}{\fontspec{msjh}(梁智湧)}
+    \phone[mobile]{+886 9??-???-???}
+    \address{No. 1, Sec. 4, Roosevelt Rd., Taipei 10617, Taiwan}
+    \email{cyliang@users.noreply.github.com}
+    \social[linkedin]{chihyung-liang}
+    \social[github]{cyliang}
+}
 
 \begin{document}
 \makecvtitle
