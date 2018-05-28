@@ -4,18 +4,19 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{fontspec}
+\newfontfamily{\zh}[BoldFont=msjhbd, AutoFakeSlant=.2]{msjh}
 
 \usepackage[margin=1.0cm,a4paper,ignoreall]{geometry}
 \usepackage{babel}
 
 % personal data
 % Put your private data in a file named "personal-data.tex".
-\IfFileExists{personal-data.tex}{
-    \input{personal-data}
+\IfFileExists{personal-data.chinese.tex}{
+    \input{personal-data.chinese}
 }{
-    \name{Chih-Yung Liang}{\fontspec{msjh}(梁智湧)}
+    \name{\zh 梁智湧}{Chih-Yung Liang}
     \phone[mobile]{+886 9??-???-???}
-    \address{No. 1, Sec. 4, Roosevelt Rd., Taipei 10617, Taiwan}
+    \address{\zh 台北市大安區羅斯福路四段1號}
     \email{cyliang@users.noreply.github.com}
     \social[linkedin]{chihyung-liang}
     \social[github]{cyliang}
@@ -24,81 +25,81 @@
 \begin{document}
 \makecvtitle
 
-\section{Education}
+\section{{\zh 學歷} Education}
     \cventry
-        {2016--Present} % year
-        {MSc student in Computer Science} % degree
-        {National Taiwan University} % institute
-        {Taipei, Taiwan} % city
-        {Institute of Networking and Multimedia} % description
-        {\cvlistdoubleitem{Advisor: Prof. Wei-Chung Hsu}{Overall: GPA 4.24/4.3, class rank 3/40}}
+        {\zh 2016年－現在} % year
+        {\zh 碩士（就讀中）} % degree
+        {\zh 國立台灣大學} % institute
+        {\zh 台北} % city
+        {\zh 資訊網路與多媒體研究所} % description
+        {\cvlistdoubleitem{\zh 指導老師：徐慰中教授}{{\zh 目前所有學分：}GPA 4.24/4.3, {\zh 班級排名} 3/40}}
 
     \cventry
-        {2012--2016}
-        {BSc in Computer Science}
-        {National Chiao Tung University}
-        {Hsinchu, Taiwan}
-        {Department of Computer Science}
-        {\cvlistitem{Won \underline{5 academic achievement awards} (top 5\% of class in semester), Fall 2013--Fall 2015}%
-        \cvlistdoubleitem{Last 60 credits: GPA 4.06/4.3}{Overall: GPA 3.89/4.3, class rank 3/54}}
+        {\zh 2012年－2016年}
+        {\zh 學士}
+        {\zh 國立交通大學}
+        {\zh 新竹}
+        {\zh 資訊工程學系}
+        {\cvlistitem{\zh 獲得\underline{五次書卷獎}（班級排名前5\%）, 102上－104上}%
+        \cvlistdoubleitem{{\zh 最後60學分：} GPA 4.06/4.3}{{\zh 所有學分：} GPA 3.89/4.3, {\zh 班級排名} 3/54}}
         
-\section{Publication (accepted)}
+\section{{\zh 論文發表（已被接受） }Publication (accepted)}
     C. Liang, S. Fu, Y. Liu and W. Hsu, "Automatically Migrating Sequential Applications to Heterogeneous System Architecture", in \textit{The 2018 International Conference on High Performance Computing \& Simulation, Special Session on Compiler Architecture, Design and Optimization}, Orléans, France, Jul. 2018.
 
-\section{Experience}
+\section{{\zh 經歷} Experience}
     \cventry
-        {Sept. 2017--Jan. 2018} % period
-        {Intern} % job title
-        {Industrial Technology Research Institute (ITRI)} % employer
-        {Hsinchu, Taiwan} % city
-        {Information and Communications Research Laboratories} % department
-        {\cvlistitem{Surveyed Control Flow Integrity and helped decide team's project direction}} % short description
+        {\zh 2017年9月－2018年1月} % period
+        {\zh 實習} % job title
+        {\zh 工業技術研究院} % employer
+        {\zh 新竹} % city
+        {\zh 資訊與通訊研究所} % department
+        {\cvlistitem{{\zh 研究}Control Flow Integrity{\zh 並幫助團隊決定專案之方向}}} % short description
 
     \cventry
-        {July 2016--Aug. 2017}
-        {Intern}
-        {Industrial Technology Research Institute (ITRI)}
-        {Hsinchu, Taiwan}
-        {Service Systems Technology Center}
-        {\cvlistitem{Built a system for electronic commerce and social media analysis}}
+        {\zh 2016年7月－2017年8月}
+        {\zh 實習}
+        {\zh 工業技術研究院}
+        {\zh 新竹}
+        {\zh 服務系統科技中心}
+        {\cvlistitem{\zh 建構電子商務與社群媒體之分析系統}}
         
     \cventry
-        {Apr. 2015--Oct. 2015}
-        {Part-time assistant}
-        {National Chiao Tung University}
-        {Hsinchu, Taiwan}
-        {Information Technology Service Center}
+        {\zh 2015年4月－2015年10月}
+        {\zh 工讀}
+        {\zh 國立交通大學}
+        {\zh 新竹}
+        {\zh 資訊技術服務中心}
         {\begin{itemize}
-        \item Penetration testing for 26 school's internal website systems
-        \item Found and reported 20 security issues leaking personal information in 13 systems
+        \item \zh 為26個校內網站系統進行滲透測試
+        \item \zh 從其中13個系統中發現並回報了20個可能洩漏個人資料之安全性漏洞
         \end{itemize}}
         
-\section{Skills}
-    \cvlistdoubleitem{\textbf{Compiler Optimization (LLVM)}}{Computer Security}
-    \cvlistdoubleitem{\textbf{Heterogeneous System Architecture (HSA)}}{Web and iOS Development}
-    \cvlistitem{Programming Languages: C/C++ > Python > Swift > C\# = PHP = JaveScript}
+\section{{\zh 技能} Skills}
+    \cvlistdoubleitem{\textbf{{\zh 編譯器優化} (LLVM)}}{\zh 資訊安全}
+    \cvlistdoubleitem{\textbf{Heterogeneous System Architecture (HSA)}}{{\zh 網站及}iOS{\zh 應用開發}}
+    \cvlistitem{{\zh 程式語言：}C/C++ > Python > Swift > C\# = PHP = JaveScript}
         
-\section{Projects, Case, and Scholarships}
+\section{{\zh 專題、接案、以及獎學金} Projects, Case, and Scholarships}
     \cventry
-        {2014--2016} % period
-        {An automatic framework capable of various exploitation in penetration testing} % description
+        {\zh 2014－2016} % period
+        {\zh 用於滲透測試之模組化自動攻擊系統, 包含許多種類之進攻工具} % description
         {Modulized APT Framework for Red Team Practice} % title
         {}
         {} % link
         {\begin{itemize}
-        \item Advisor: Prof. Shiuhpyng Shieh
-        \item Won \underline{College Student Research Scholarship}, Ministry of Science and Technology, Taiwan, July 2015--Fab. 2016
-        \item Won \underline{3 bachelor's project scholarships}, Spring 2015, Summer 2015, and Fall 2015
+        \item \zh 指導老師：謝續平教授
+        \item \zh 獲得\underline{科計部大專學生研究計畫}之補助, 2015年7月－2016年2月
+        \item \zh 獲得\underline{3次資心專題獎助學金}, 104下、105暑、以及105上
         \end{itemize}%
         }
         
     \cventry
-        {2015}
-        {Accelerate application "Find Face" with a FPGA Intellectual Property}
-        {Hardware-software Co-design for Accelerating Sequential Image Pattern Searching Application}
+        {\zh 2015}
+        {{\zh 以}FPGA Intellectual Property{\zh 加速應用程式}"Find Face"}
+        {\zh 以軟硬體協同設計加速圖片搜尋之應用}
         {}
         {\href{https://github.com/cyliang/shlab-final}{\textnormal{https://github.com/cyliang/shlab-final}}}
-        {\cvlistdoubleitem{Won \underline{The Yin Zhi Tong Memorial Scholarship}, 2016}{Advisor: Prof. Chun-Jen Tsai}}
+        {\cvlistdoubleitem{\zh 獲得\underline{殷之同學長電子實驗獎學金}, 2016}{\zh 指導老師：蔡淳仁副教授}}
 
 %    \cventry
 %        {2016}
@@ -109,20 +110,20 @@
 %        {}
         
     \cventry
-        {2014}
-        {A website case for sport event registration}
-        {Registration Website for Office of Physical Education, National Chiao Tung University}
+        {\zh 2014}
+        {\zh 能應付上百人的瞬間尖峰流量}
+        {\zh 接案：國立交通大學體育室報名網站}
         {}
         {\href{http://140.113.104.243/sport/}{\textnormal{http://140.113.104.243/sport/}}}
-        {\cvlistitem{Capable of coping with instantaneous peak flow of hundreds of people}}
-        
-\section{Certificate}
-    \cventry
-        {Oct. 2015} % time
-        {Professional} % level
-        {Collegiate Programming Examination, ACM-ICPC Contest Council for Taiwan} % title
         {}
-        {rank 1.5\%} % grade
+        
+\section{{\zh 檢定} Certificate}
+    \cventry
+        {\zh 2015年10月} % time
+        {\zh 專業級} % level
+        {\zh 臺灣國際計算機器程式競賽暨檢定學會 大學程式能力檢定} % title
+        {}
+        {\zh 全國排名前1.5\%} % grade
         {}
 
 %\clearpage
