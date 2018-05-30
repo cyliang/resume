@@ -22,6 +22,14 @@
 }
 
 \begin{document}
+
+\hypersetup{
+    pdfauthor={Chih-Yung~Liang},
+    pdftitle={Chih-Yung~Liang's Resum\'{e}},
+    pdfsubject={Resum\'{e} of Chih-Yung~Liang},
+    pdfkeywords={Chih-Yung~Liang, resum\'{e}},
+}
+
 \makecvtitle
 
 \section{Education}
@@ -43,10 +51,14 @@
         \cvlistdoubleitem{Last 60 credits: GPA 4.06/4.3}{Overall: GPA 3.89/4.3, class rank 3/54}}
         
 \section{Publication (accepted)}
-    C. Liang, S. Fu, Y. Liu and W. Hsu, "Automatically Migrating Sequential Applications to Heterogeneous System Architecture", in \textit{The 2018 International Conference on High Performance Computing \& Simulation, Special Session on Compiler Architecture, Design and Optimization}, Orléans, France, Jul. 2018. (URL: \href{https://goo.gl/Cf8Azp}{https://goo.gl/Cf8Azp})
+    \begin{itemize}
+    \item C. Liang, S. Fu, Y. Liu and W. Hsu, "Automatically Migrating Sequential Applications to Heterogeneous System Architecture", in \textit{The 2018 International Conference on High Performance Computing \& Simulation, Special Session on Compiler Architecture, Design and Optimization}, Orléans, France, Jul. 2018. (URL: \href{https://goo.gl/Cf8Azp}{https://goo.gl/Cf8Azp})
+        \begin{itemize}
+        \item \textbf{Description}: \textit{Heterogeneous System Architecture (HSA)} is a hardware architecture for more efficient heterogeneous computing. Built on \textit{LLVM}, our framework transforms sequential code and generates GPU binary with LLVM's backends. It includes polyhedral dependence checking and a runtime dispatching scheduler. On an AMD's HSA-compliant machine, a sequential application running through this framework could be 8.66x faster than before.
+        \end{itemize}
+    \end{itemize}
     
-    \cvlistitem{\textbf{Heterogeneous System Architecture (HSA)} is a hardware architecture proposed for more efficient heterogeneous computing. Built on \textbf{LLVM}, our framework transforms sequential code and generates GPU binary with LLVM's backends. It includes polyhedral dependence checking and a runtime dispatching scheduler. On an AMD Carrizo machine (HSA-compliant), a sequential application running through this framework could be 8.66x faster than before.}
-
+\vspace{-5pt}
 \section{Experience}
     \cventry
         {Sept. 2017--Jan. 2018} % period
@@ -57,7 +69,7 @@
         {\cvlistitem{Surveyed Control Flow Integrity and helped decide team's project direction}} % short description
 
     \cventry
-        {July 2016--Aug. 2017}
+        {July 2016--Aug. 2016}
         {Intern}
         {Industrial Technology Research Institute (ITRI)}
         {Hsinchu, Taiwan}
